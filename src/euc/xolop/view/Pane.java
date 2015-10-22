@@ -17,8 +17,10 @@ public class Pane{
 	private GridPane grid;
 	private GridPane flow;
 	private Label lblN1;
-	private TextField tfFirstNumber;
 	private Label lblN2;
+	private Label lblError;
+	private Label lblRes;
+	private TextField tfFirstNumber;
 	private TextField tfSecondNumber;
 	private Button btnCalc;
 	private Button btnClear;
@@ -41,6 +43,11 @@ public class Pane{
 		tfSecondNumber 	= new TextField();
 		btnCalc 		= new Button("    Calcular    ");
 		btnClear		= new Button(" Limpmiar ");
+		lblError		= new Label();
+		lblRes			= new Label();
+
+		lblError.setTextFill(Color.web("#f44336"));
+		lblRes.setTextFill(Color.web("#4caf50"));
 
 		grid.setAlignment(Pos.CENTER);
 		grid.setHgap(10);
@@ -68,21 +75,7 @@ public class Pane{
 	}
 
 	public void generateTable(List<Double> res, List<Double> div, List<Double> coc){
-//		int row = 1;
-//		int col = 0;
-//        for (int i = 0; i < ; i++) {
-//        	EuclidesRectangle rect = new EuclidesRectangle(10, 10, 10, 10);
-//		    rect.setArcHeight(5);
-//		    rect.setArcWidth(5);
-//		    rect.setFill(Color.VIOLET);
-//
-//            flow.add(rect,col,row);
-//
-//            rect.animate();
-//
-//            col = (row==ROWS)? ++col : col;
-//            row = (row==ROWS)? 0 : ++row;
-//        }
+
 		EuclidesRectangle f = new EuclidesRectangle(10, 10, 10, 10);
 	    f.setArcHeight(5);
 	    f.setArcWidth(5);
@@ -138,6 +131,12 @@ public class Pane{
 	}
 	public TextField getTxtSecondNumber(){
 		return tfSecondNumber;
+	}
+	public Label getLblError(){
+		return lblError;
+	}
+	public Label getLblRes(){
+		return lblRes;
 	}
 	public Button getBtnCalc(){
 		return btnCalc;

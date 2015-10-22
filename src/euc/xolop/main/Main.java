@@ -26,18 +26,25 @@ public class Main extends Application{
 	    root.getChildren().add(form.getPane());
 
 	    form.getBtnCalc().setOnAction((event) ->{
-	    	Double first = Double.valueOf(form.getTxtFirstNumber().getText());
-	    	Double second = Double.valueOf(form.getTxtSecondNumber().getText());
+	    	try{
+		    	Double first = Double.valueOf(form.getTxtFirstNumber().getText());
+		    	Double second = Double.valueOf(form.getTxtSecondNumber().getText());
+		    	Double result = 0.0;
 
-		    form.getFlow().getChildren().clear();
+			    form.getFlow().getChildren().clear();
 
-	        Euclides euc =  new Euclides();
-	        if(first > second){
-			    euc.algoritmo(first, second);
-	        }else{
-	        	euc.algoritmo(second, first);
-	        }
-		    form.generateTable(euc.lResiduo, euc.lDividendo,euc.lCociente );
+		        Euclides euc =  new Euclides();
+		        if(first > second){
+				    result = euc.algoritmo(first, second);
+		        }else{
+		        	result = euc.algoritmo(second, first);
+		        }
+			    form.generateTable(euc.lResiduo, euc.lDividendo,euc.lCociente );
+	    		form.getLblError().setText("");
+	    		form.getLblError().setText("el mcd es igual a : " + String.valueOf(result));
+	    	}catch(Exception e){
+	    		form.getLblError().setText("Solo se permiten números.");
+	    	}
 	    });
 
 	    stage.setScene(scene);
