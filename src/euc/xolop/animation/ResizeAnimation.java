@@ -1,4 +1,4 @@
-package euc.xolop.animate;
+package euc.xolop.animation;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -9,7 +9,8 @@ public class ResizeAnimation extends Timer {
 
 	public ResizeAnimation(){}
 
-	public void start(final Stage stage,final int width,final int height,final long delay,final long period){
+	public void start(final Stage obj,final int width,final int height,final long delay,final long period){
+
 		this.scheduleAtFixedRate(
 			new TimerTask() {
 
@@ -17,11 +18,11 @@ public class ResizeAnimation extends Timer {
 		        @Override
 		        public void run() {
 		            if (i<width){
-			            stage.setWidth(stage.getWidth()+1);
+			            obj.setWidth(obj.getWidth()+1);
 		            }
 
 		            if (i<height){
-			            stage.setWidth(stage.getHeight()+1);
+		            	obj.setWidth(obj.getHeight()+1);
 		            }
 
 		            if(i >= width  &&  i >= height){
@@ -34,4 +35,5 @@ public class ResizeAnimation extends Timer {
 		,delay, period);
 
 	}
+
 }
