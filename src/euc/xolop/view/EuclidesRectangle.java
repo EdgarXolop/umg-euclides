@@ -1,4 +1,4 @@
-package euc.xolop.shape;
+package euc.xolop.view;
 
 import euc.xolop.animation.RectangleAnimation;
 import javafx.scene.paint.Paint;

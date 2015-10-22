@@ -1,11 +1,11 @@
 package euc.xolop.main;
 
-import euc.xolop.animation.ResizeAnimation;
-import euc.xolop.shape.EuclidesRectangle;
+import euc.xolop.math.Euclides;
+//import euc.xolop.animation.ResizeAnimation;
+import euc.xolop.view.Pane;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -15,19 +15,30 @@ public class Main extends Application{
 	public void start(Stage stage) throws Exception {
 	    stage.setTitle("Algoritmo de Euclides");
 	    Group root = new Group();
-	    Scene scene  = new Scene(root, 350, 250);
+	    Scene scene  = new Scene(root, 750, 250);
 	    stage.setResizable(false);
 
-	    ResizeAnimation resize =  new ResizeAnimation();
-	    resize.start(stage, 400, 0, 0, 10);
+//	    ResizeAnimation resize =  new ResizeAnimation();
+//	    resize.start(stage, 400, 0, 0, 10);
 
-	    final EuclidesRectangle rect = new EuclidesRectangle(10, 10, 10, 10);
-	    rect.setArcHeight(5);
-	    rect.setArcWidth(5);
-	    rect.setFill(Color.VIOLET);
+	    final Pane form = new Pane();
 
-	    rect.animate();
-	    root.getChildren().add(rect);
+	    root.getChildren().add(form.getPane());
+
+	    form.getBtnCalc().setOnAction((event) ->{
+	    	Double first = Double.valueOf(form.getTxtFirstNumber().getText());
+	    	Double second = Double.valueOf(form.getTxtSecondNumber().getText());
+
+		    form.getFlow().getChildren().clear();
+
+	        Euclides euc =  new Euclides();
+	        if(first > second){
+			    euc.algoritmo(first, second);
+	        }else{
+	        	euc.algoritmo(second, first);
+	        }
+		    form.generateTable(euc.lResiduo, euc.lDividendo,euc.lCociente );
+	    });
 
 	    stage.setScene(scene);
 	    stage.show();

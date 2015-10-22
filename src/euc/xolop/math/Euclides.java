@@ -5,26 +5,44 @@ import java.util.List;
 
 public class Euclides {
 
-	static List<Double> lResiduo = new ArrayList<Double>();
-	static List<Double> lDivisor = new ArrayList<Double>();
-	static List<Double> lCociente = new ArrayList<Double>();
+	public List<Double> lResiduo = new ArrayList<Double>();
+	public List<Double> lDividendo = new ArrayList<Double>();
+	public List<Double> lCociente = new ArrayList<Double>();
 
-	public static double algoritmo(double dividendo,double divisor){
-		double residuo =  dividendo % divisor;
-		double cociente = Math.floor(dividendo/divisor);
+//	public static void main(String args[]){
+//		System.out.println("El mcd es : " + algoritmo(17154,357));
+//
+//		System.out.print("     " );
+//		for(int i = 0; i < lCociente.size(); i++){
+//			System.out.print("  " + lCociente.get(i));
+//		}
+//		System.out.println();
+//		for(int i = 0; i < lDividendo.size(); i++){
+//			System.out.print("  " + lDividendo.get(i));
+//		}
+//		System.out.println();
+//		for(int i = 0; i < lResiduo.size(); i++){
+//			System.out.print("  " + lResiduo.get(i));
+//		}
+//	}
 
-		lResiduo.add(residuo);
-		lCociente.add(cociente);
+	public double algoritmo(double dividendo,double divisor){
+		lDividendo.add(dividendo);
 
-		System.out.println("Dividendo : " + dividendo + "   Divisor : " + divisor + "   Cociente : " + cociente);
-		if(residuo == 0 ){
-			return divisor;
-		}else{
-			lDivisor.add(residuo);
-			algoritmo(divisor,residuo);
+		while (divisor > 0){
+			double residuo =  dividendo % divisor;
+			double cociente = Math.floor(dividendo/divisor);
+
+			lDividendo.add(divisor);
+			lResiduo.add(residuo);
+			lCociente.add(cociente);
+
+			dividendo =  divisor;
+			divisor = residuo;
+
 		}
 
-		return  lDivisor.get(lDivisor.size() - 1);
+		return  lDividendo.get(lDividendo.size() - 1);
 	}
 
 }
