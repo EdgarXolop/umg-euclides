@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Euclides {
 
-	public List<Double> lResiduo = new ArrayList<Double>();
-	public List<Double> lDividendo = new ArrayList<Double>();
-	public List<Double> lCociente = new ArrayList<Double>();
+	public List<Integer> lResiduo = new ArrayList<Integer>();
+	public List<Integer> lDividendo = new ArrayList<Integer>();
+	public List<Integer> lCociente = new ArrayList<Integer>();
 
 //	public static void main(String args[]){
 //		System.out.println("El mcd es : " + algoritmo(17154,357));
@@ -26,16 +26,16 @@ public class Euclides {
 //		}
 //	}
 
-	public double algoritmo(double dividendo,double divisor){
-		lDividendo.add(dividendo);
+	public double algoritmo(Double dividendo,Double divisor){
+		lDividendo.add(dividendo.intValue());
 
 		while (divisor > 0){
-			double residuo =  dividendo % divisor;
-			double cociente = Math.floor(dividendo/divisor);
+			Double residuo =  dividendo % divisor;
+			Double cociente = Math.floor(dividendo/divisor);
 
-			lDividendo.add(divisor);
-			lResiduo.add(residuo);
-			lCociente.add(cociente);
+			lDividendo.add(divisor.intValue());
+			lResiduo.add(residuo.intValue());
+			lCociente.add(cociente.intValue());
 
 			dividendo =  divisor;
 			divisor = residuo;
