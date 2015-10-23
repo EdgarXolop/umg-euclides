@@ -63,6 +63,8 @@ public class Pane{
 	    grid.add(tfSecondNumber, 1, 1);
 	    grid.add(btnCalc, 0, 2);
 	    grid.add(btnClear, 1, 2);
+	    grid.add(lblError,0,3,2,1);
+	    grid.add(lblRes,0,4,2,1);
 	}
 
 	private void createTableEuclides(){

@@ -18,9 +18,6 @@ public class Main extends Application{
 	    Scene scene  = new Scene(root, 750, 250);
 	    stage.setResizable(false);
 
-//	    ResizeAnimation resize =  new ResizeAnimation();
-//	    resize.start(stage, 400, 0, 0, 10);
-
 	    final Pane form = new Pane();
 
 	    root.getChildren().add(form.getPane());
@@ -41,10 +38,20 @@ public class Main extends Application{
 		        }
 			    form.generateTable(euc.lResiduo, euc.lDividendo,euc.lCociente );
 	    		form.getLblError().setText("");
-	    		form.getLblError().setText("el mcd es igual a : " + String.valueOf(result));
+	    		form.getLblRes().setText("El mcd es igual a : " + String.valueOf(result));
 	    	}catch(Exception e){
 	    		form.getLblError().setText("Solo se permiten números.");
 	    	}
+	    });
+	    
+	    form.getBtnClear().setOnAction((event) -> {
+
+		    form.getFlow().getChildren().clear();
+		    form.getLblError().setText("");
+		    form.getLblRes().setText("");
+		    form.getTxtFirstNumber().setText("");
+		    form.getTxtSecondNumber().setText("");
+		    
 	    });
 
 	    stage.setScene(scene);
