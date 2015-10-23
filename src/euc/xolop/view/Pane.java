@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -14,6 +15,7 @@ import javafx.scene.paint.Color;
 public class Pane{
 	public static int ROWS = 2;
 	private BorderPane border;
+	private ScrollPane scroll;
 	private GridPane grid;
 	private GridPane flow;
 	private Label lblN1;
@@ -28,15 +30,20 @@ public class Pane{
 	public Pane(){
 		border = new BorderPane();
 		border.setPrefHeight(250);
+		grid = new GridPane();
+		flow = new GridPane();
+		scroll = new ScrollPane(flow);
 
-		createForm();
-		createTableEuclides();
+		scroll.setPrefWidth(530);
+
+		initGrid();
+		initFlow();
+
 		border.setLeft(grid);
-		border.setRight(flow);
+		border.setRight(scroll);
 	}
 
-	private void createForm(){
-		grid 			= new GridPane();
+	private void initGrid(){
 		lblN1 			= new Label("Primer número:");
 		tfFirstNumber 	= new TextField();
 		lblN2 			= new Label("Segundo número:");
@@ -67,39 +74,46 @@ public class Pane{
 	    grid.add(lblRes,0,4,2,1);
 	}
 
-	private void createTableEuclides(){
-		flow = new GridPane();
+	private void initFlow(){
 		flow.setHgap(60);
 		flow.setVgap(60);
 		flow.setAlignment(Pos.CENTER);
-		flow.setPadding(new Insets(0,20,0,20));
+		flow.setPadding(new Insets(30,30,30,30));
 
 	}
 
 	public void generateTable(List<Integer> res, List<Integer> div, List<Integer> coc){
-
 		EuclidesRectangle f = new EuclidesRectangle("","white");
+		String space = "   ";
         flow.add(f,0,0);
         f.animate();
+		this.flow.getChildren().clear();
 
 		for(int i = 1 ; i <= coc.size() ; i++){
-			EuclidesRectangle rect = new EuclidesRectangle(String.valueOf(coc.get(i-1)),"gray");
+			String result = String.valueOf(coc.get(i-1));
+			result = space.substring(result.length()/2) + result;
+			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,0);
 	        rect.animate();
 
 		}
 		for(int i = 0 ; i < div.size() ; i++){
-			EuclidesRectangle rect = new EuclidesRectangle(String.valueOf(div.get(i)),"gray");
+			String result = String.valueOf(div.get(i));
+			result = space.substring(result.length()/2) + result;
+			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,1);
 	        rect.animate();
 
 		}
 		for(int i = 0 ; i < res.size() ; i++){
-			EuclidesRectangle rect = new EuclidesRectangle(String.valueOf(coc.get(i)),"gray");
+			String result = String.valueOf(res.get(i));
+			result = space.substring(result.length()/2) + result;
+			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,2);
 	        rect.animate();
 
 		}
+
 
 	}
 	public BorderPane getPane(){

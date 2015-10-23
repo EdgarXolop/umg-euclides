@@ -15,7 +15,7 @@ public class Main extends Application{
 	public void start(Stage stage) throws Exception {
 	    stage.setTitle("Algoritmo de Euclides");
 	    Group root = new Group();
-	    Scene scene  = new Scene(root, 750, 250);
+	    Scene scene  = new Scene(root, 750, 270);
 	    stage.setResizable(false);
 
 	    final Pane form = new Pane();
@@ -27,8 +27,6 @@ public class Main extends Application{
 		    	Double first = Double.valueOf(form.getTxtFirstNumber().getText());
 		    	Double second = Double.valueOf(form.getTxtSecondNumber().getText());
 		    	Double result = 0.0;
-
-			    form.getFlow().getChildren().clear();
 
 		        Euclides euc =  new Euclides();
 		        if(first > second){
