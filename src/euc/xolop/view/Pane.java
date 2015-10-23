@@ -78,47 +78,30 @@ public class Pane{
 
 	public void generateTable(List<Integer> res, List<Integer> div, List<Integer> coc){
 
-		EuclidesRectangle f = new EuclidesRectangle(10, 10, 10, 10);
-	    f.setArcHeight(5);
-	    f.setArcWidth(5);
-	    f.setFill(Color.WHITE);
-
+		EuclidesRectangle f = new EuclidesRectangle("","white");
         flow.add(f,0,0);
         f.animate();
 
 		for(int i = 1 ; i <= coc.size() ; i++){
-			EuclidesRectangle rect = new EuclidesRectangle(10, 10, 10, 10);
-		    rect.setArcHeight(5);
-		    rect.setArcWidth(5);
-		    rect.setFill(Color.GRAY);
+			EuclidesRectangle rect = new EuclidesRectangle(String.valueOf(coc.get(i-1)),"gray");
 	        flow.add(rect,i,0);
-	        flow.add(new Label(String.valueOf(coc.get(i-1))),i,0);
 	        rect.animate();
 
 		}
 		for(int i = 0 ; i < div.size() ; i++){
-			EuclidesRectangle rect = new EuclidesRectangle(10, 10, 10, 10);
-		    rect.setArcHeight(5);
-		    rect.setArcWidth(5);
-		    rect.setFill(Color.GRAY);
+			EuclidesRectangle rect = new EuclidesRectangle(String.valueOf(div.get(i)),"gray");
 	        flow.add(rect,i,1);
-	        flow.add(new Label(String.valueOf(div.get(i))),i,1);
 	        rect.animate();
 
 		}
 		for(int i = 0 ; i < res.size() ; i++){
-			EuclidesRectangle rect = new EuclidesRectangle(10, 10, 10, 10);
-		    rect.setArcHeight(5);
-		    rect.setArcWidth(5);
-		    rect.setFill(Color.GRAY);
+			EuclidesRectangle rect = new EuclidesRectangle(String.valueOf(coc.get(i)),"gray");
 	        flow.add(rect,i,2);
-	        flow.add(new Label(String.valueOf(res.get(i))),i,2);
 	        rect.animate();
 
 		}
 
 	}
-
 	public BorderPane getPane(){
 		return border;
 	}

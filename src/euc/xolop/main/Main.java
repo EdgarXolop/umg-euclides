@@ -38,12 +38,12 @@ public class Main extends Application{
 		        }
 			    form.generateTable(euc.lResiduo, euc.lDividendo,euc.lCociente );
 	    		form.getLblError().setText("");
-	    		form.getLblRes().setText("El mcd es igual a : " + String.valueOf(result));
+	    		form.getLblRes().setText("El mcd es igual a : " + String.valueOf(result.intValue()));
 	    	}catch(Exception e){
 	    		form.getLblError().setText("Solo se permiten números.");
 	    	}
 	    });
-	    
+
 	    form.getBtnClear().setOnAction((event) -> {
 
 		    form.getFlow().getChildren().clear();
@@ -51,7 +51,7 @@ public class Main extends Application{
 		    form.getLblRes().setText("");
 		    form.getTxtFirstNumber().setText("");
 		    form.getTxtSecondNumber().setText("");
-		    
+
 	    });
 
 	    stage.setScene(scene);
