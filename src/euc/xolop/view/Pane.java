@@ -76,7 +76,7 @@ public class Pane{
 
 	}
 
-	public void generateTable(List<Double> res, List<Double> div, List<Double> coc){
+	public void generateTable(List<Integer> res, List<Integer> div, List<Integer> coc){
 
 		EuclidesRectangle f = new EuclidesRectangle(10, 10, 10, 10);
 	    f.setArcHeight(5);
