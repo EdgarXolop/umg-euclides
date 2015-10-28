@@ -26,7 +26,7 @@ public class Main extends Application{
 	    	try{
 		    	Double first = Double.valueOf(form.getTxtFirstNumber().getText());
 		    	Double second = Double.valueOf(form.getTxtSecondNumber().getText());
-		    	Double result = 0.0;
+		    	int result = 0;
 
 		        Euclides euc =  new Euclides();
 		        if(first > second){
@@ -36,9 +36,10 @@ public class Main extends Application{
 		        }
 			    form.generateTable(euc.lResiduo, euc.lDividendo,euc.lCociente );
 	    		form.getLblError().setText("");
-	    		form.getLblRes().setText("El mcd es igual a : " + String.valueOf(result.intValue()));
+	    		form.getLblRes().setText("El mcd es igual a : " + String.valueOf(result));
 	    	}catch(Exception e){
 	    		form.getLblError().setText("Solo se permiten números.");
+	    		e.printStackTrace();
 	    	}
 	    });
 
