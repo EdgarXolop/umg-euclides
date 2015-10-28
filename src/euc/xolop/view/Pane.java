@@ -84,14 +84,12 @@ public class Pane{
 
 	public void generateTable(List<Integer> res, List<Integer> div, List<Integer> coc){
 		EuclidesRectangle f = new EuclidesRectangle("","white");
-		String space = "   ";
         flow.add(f,0,0);
         f.animate();
 		this.flow.getChildren().clear();
 
 		for(int i = 1 ; i <= coc.size() ; i++){
 			String result = String.valueOf(coc.get(i-1));
-			result = space.substring(result.length()/2) + result;
 			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,0);
 	        rect.animate();
@@ -99,7 +97,6 @@ public class Pane{
 		}
 		for(int i = 0 ; i < div.size() ; i++){
 			String result = String.valueOf(div.get(i));
-			result = space.substring(result.length()/2) + result;
 			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,1);
 	        rect.animate();
@@ -107,7 +104,6 @@ public class Pane{
 		}
 		for(int i = 0 ; i < res.size() ; i++){
 			String result = String.valueOf(res.get(i));
-			result = space.substring(result.length()/2) + result;
 			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,2);
 	        rect.animate();
