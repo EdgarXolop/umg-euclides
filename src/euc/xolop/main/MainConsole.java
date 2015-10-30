@@ -44,8 +44,32 @@ public class MainConsole {
 		}else{
 			cmd = euc.algoritmo(first, second);
 		}
+		
+		System.out.print("     ");
+		
+		for (int i = 0; i < euc.getlCociente().size() ; i++) {
 
+			System.out.print(String.valueOf(euc.getlCociente().get(i)) + "     ");	
+		}
+		
+		System.out.println("\n");
+		
+		for (int i = 0; i < euc.getlDividendo().size() ; i++) {
 
+			System.out.print(String.valueOf(euc.getlDividendo().get(i)) + "     ");	
+		}
+		
+		System.out.println("\n");
+		
+		for (int i = 0; i < euc.getlResiduo().size() ; i++) {
+
+			System.out.print(String.valueOf(euc.getlResiduo().get(i)) + "     ");	
+		}
+		
+
+		System.out.println("\n");
+		System.out.println("\n");
+		System.out.println("El cmd de los numeros " + number[0] + " y " + number[1] + "  es igual a : " + String.valueOf(cmd));
 
 	}
 

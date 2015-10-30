@@ -11,7 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-
+/**
+ * 
+ * @author Edgar Xolop
+ * Pane que contiene los elemntos, formulario y grid del algoritmo
+ */
 public class Pane{
 	public static int ROWS = 2;
 	private BorderPane border;
@@ -83,26 +87,26 @@ public class Pane{
 	}
 
 	public void generateTable(List<Integer> res, List<Integer> div, List<Integer> coc){
-		EuclidesRectangle f = new EuclidesRectangle("","white");
+		EuclidesRectangle f = new EuclidesRectangle("","white");//primer rectanglo del cociente vacio
         flow.add(f,0,0);
         f.animate();
 		this.flow.getChildren().clear();
 
-		for(int i = 1 ; i <= coc.size() ; i++){
+		for(int i = 1 ; i <= coc.size() ; i++){//agregamos los coientes
 			String result = String.valueOf(coc.get(i-1));
 			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,0);
 	        rect.animate();
 
 		}
-		for(int i = 0 ; i < div.size() ; i++){
+		for(int i = 0 ; i < div.size() ; i++){//agregamos los divisores
 			String result = String.valueOf(div.get(i));
 			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,1);
 	        rect.animate();
 
 		}
-		for(int i = 0 ; i < res.size() ; i++){
+		for(int i = 0 ; i < res.size() ; i++){//agregamos los residuos
 			String result = String.valueOf(res.get(i));
 			EuclidesRectangle rect = new EuclidesRectangle(result,"gray");
 	        flow.add(rect,i,2);
